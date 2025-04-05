@@ -1206,6 +1206,10 @@ footer {
     color: var(--secondary-color);
 }
 
+.contact-item i.fa-whatsapp {
+    color: #25D366; /* Couleur officielle de WhatsApp */
+}
+
 .contact-item a {
     color: var(--text-color);
     text-decoration: none;
