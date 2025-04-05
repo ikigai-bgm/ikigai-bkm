@@ -1175,4 +1175,81 @@ footer {
     .author-info p {
         font-size: 0.8rem;
     }
+}
+
+/* Styles pour les informations de contact */
+.contact-info {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.contact-item a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--secondary-color);
+}
+
+/* Responsive pour les informations de contact */
+@media (max-width: 768px) {
+    .contact-info {
+        margin-top: 1.5rem;
+    }
+
+    .contact-item {
+        padding: 0.8rem;
+    }
+
+    .contact-item i {
+        font-size: 1.3rem;
+    }
+
+    .contact-item a {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-info {
+        margin-top: 1rem;
+    }
+
+    .contact-item {
+        padding: 0.7rem;
+    }
+
+    .contact-item i {
+        font-size: 1.2rem;
+    }
+
+    .contact-item a {
+        font-size: 0.9rem;
+    }
 } 
