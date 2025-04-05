@@ -1,0 +1,45 @@
+# Ikigai-BKM - Fichier robots.txt
+# Dernière mise à jour : 2024-03-20
+# Contact : ikigaibkm@gmail.com
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /sitemap.xml
+Allow: /styles.css
+Allow: /script.js
+
+# Empêcher l'indexation des ressources non essentielles
+Disallow: /assets/images/placeholder/
+Disallow: /temp/
+Disallow: /draft/
+
+# Paramètres de crawl
+Crawl-delay: 10
+
+# Sitemap
+Sitemap: https://ikigaibkm.com/sitemap.xml
+
+# Spécificités pour les moteurs de recherche principaux
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 5
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 5
+
+User-agent: Yandex
+Allow: /
+Crawl-delay: 5
+
+# Empêcher l'indexation des versions de développement
+User-agent: *
+Disallow: /dev/
+Disallow: /test/
+Disallow: /staging/
+
+# Empêcher l'indexation des fichiers de configuration
+Disallow: /config/
+Disallow: /includes/
+Disallow: /private/ 
