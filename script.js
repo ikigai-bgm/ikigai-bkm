@@ -1,4 +1,4 @@
-// Mobile Menu Toggle
+// Gestion du menu mobile
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 
@@ -6,56 +6,23 @@ navToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
 });
 
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
-        navLinks.classList.remove('active');
-    }
-});
-
-// Smooth scroll for navigation links
+// Gestion du scroll fluide
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-
-// Scroll animations
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            // Fermer le menu mobile après avoir cliqué sur un lien
+            navLinks.classList.remove('active');
         }
     });
-}, observerOptions);
-
-// Observe all sections and cards
-document.querySelectorAll('section, .service-card, .project-card, .testimonial-card').forEach(element => {
-    element.classList.add('fade-in');
-    observer.observe(element);
 });
 
-// Add alternating slide animations to service cards
-document.querySelectorAll('.service-card').forEach((card, index) => {
-    if (index % 2 === 0) {
-        card.classList.remove('fade-in');
-        card.classList.add('slide-in-left');
-    } else {
-        card.classList.remove('fade-in');
-        card.classList.add('slide-in-right');
-    }
-});
-
-// Form submission handling
+// Gestion du formulaire de contact
 const contactForm = document.getElementById('contactForm');
 
 contactForm.addEventListener('submit', (e) => {
@@ -101,6 +68,38 @@ function showNotification(message, type) {
         }, 300);
     }, 3000);
 }
+
+// Animation au scroll
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, observerOptions);
+
+// Observe all sections and cards
+document.querySelectorAll('section, .service-card, .project-card, .testimonial-card').forEach(element => {
+    element.classList.add('fade-in');
+    observer.observe(element);
+});
+
+// Add alternating slide animations to service cards
+document.querySelectorAll('.service-card').forEach((card, index) => {
+    if (index % 2 === 0) {
+        card.classList.remove('fade-in');
+        card.classList.add('slide-in-left');
+    } else {
+        card.classList.remove('fade-in');
+        card.classList.add('slide-in-right');
+    }
+});
 
 // Add scroll-based navbar background
 const navbar = document.querySelector('.navbar');
